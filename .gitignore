@@ -1,0 +1,10 @@
+# Cartella dell'ambiente virtuale: contiene una copia di Python e delle librerie,
+# è personale e non va salvata nel repository.
+.venv/
+
+# File compilati che Python crea automaticamente: non servono nel repository.
+__pycache__/
+*.pyc
+
+# Dati personali dell'app (database e foto): restano sul computer dell'utente.
+data/

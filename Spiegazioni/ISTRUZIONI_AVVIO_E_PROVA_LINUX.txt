@@ -94,11 +94,20 @@ cronologico.
  5. PROVARE IL PROGETTO SU LINUX
 ========================================================================
 
+
 L'applicazione funziona su Linux, ma servono:
   - Python 3.10 o superiore;
   - Tkinter (a volte non è installato di default);
   - Pillow (installato con requirements.txt);
   - un ambiente grafico attivo (non funziona da un terminale senza display).
+
+PS C:\Users\rita.cignarelli>          wsl -d -Ubuntu
+Nessuna distribuzione con il nome specificato.
+Codice errore: Wsl/Service/WSL_E_DISTRO_NOT_FOUND
+PS C:\Users\rita.cignarelli>                wsl -d Ubuntu
+ritacignarelli@CSP-2527-04:/mnt/c/Users/rita.cignarelli$    cd "Desktop/Progetto Python"
+ritacignarelli@CSP-2527-04:/mnt/c/Users/rita.cignarelli/Desktop/Progetto Python$ 
+./.venv/Scripts/python.exe main.py
 
 
 ------------------------------------------------------------------------

@@ -66,18 +66,28 @@ def immagine(percorso: Path | str | None, dimensione: tuple[int, int],
         try:
             with Image.open(percorso) as originale:  # apre il file della foto
                 img = ImageOps.exif_transpose(originale)  # corregge l'orientamento della foto
-                # SINTASSI — `ImageOps.fit` è diverso da `thumbnail`:
-                # `fit` ritaglia e ridimensiona per riempire ESATTAMENTE il
-                # riquadro richiesto, anche se questo taglia i bordi. Per le
-                # miniature quadrate è l'effetto che vogliamo.
-                img = ImageOps.fit(img, dimensione, Image.Resampling.LANCZOS)  # ritaglia e ridimensiona riempiendo il riquadro
+                # Ridimensiona mantenendo le proporzioni, senza ritagliare nulla:
+                # la foto intera resta visibile e viene centrata nel riquadro.
+                # Ridimensiona per stare interamente nel riquadro (anche ingrandendo
+                # se la foto è più piccola), mantenendo le proporzioni.
+                rapporto = min(dimensione[0] / img.width, dimensione[1] / img.height)  # fattore di scala per contenere la foto
+                nuova_larghezza = max(1, round(img.width * rapporto))  # larghezza ridimensionata
+                nuova_altezza = max(1, round(img.height * rapporto))  # altezza ridimensionata
+                img = img.resize((nuova_larghezza, nuova_altezza), Image.Resampling.LANCZOS)  # ridimensiona senza ritagliare
                 if img.mode in ("RGBA", "LA", "P"):  # se c'è trasparenza
                     rgba = img.convert("RGBA")  # converte in RGBA
                     sfondo = Image.new("RGB", dimensione, "white")  # sfondo bianco
-                    sfondo.paste(rgba, mask=rgba.getchannel("A"))  # applica la trasparenza
+                    x = (dimensione[0] - rgba.width) // 2  # centra orizzontalmente
+                    y = (dimensione[1] - rgba.height) // 2  # centra verticalmente
+                    sfondo.paste(rgba, (x, y), mask=rgba.getchannel("A"))  # applica la trasparenza
                     img = sfondo  # usa l'immagine con sfondo bianco
                 else:
-                    img = img.convert("RGB")  # conversione normale in RGB
+                    rgb = img.convert("RGB")  # conversione normale in RGB
+                    sfondo = Image.new("RGB", dimensione, "white")  # sfondo bianco
+                    x = (dimensione[0] - rgb.width) // 2  # centra orizzontalmente
+                    y = (dimensione[1] - rgb.height) // 2  # centra verticalmente
+                    sfondo.paste(rgb, (x, y))  # incolla la foto centrata
+                    img = sfondo  # usa l'immagine con sfondo bianco
                 # SINTASSI — `ImageTk.PhotoImage`
                 # Pillow lavora con oggetti Image; Tkinter capisce solo
                 # PhotoImage. Questa classe fa la conversione.

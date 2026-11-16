@@ -92,11 +92,11 @@ class App(tk.Tk):
         tk.Label(
             testo,
             text="Assistente personale per armadio, abbinamenti e diario",
-            bg=COLORI["intestazione"], fg="#a1a1aa", font=("Segoe UI", 9),
+            bg=COLORI["intestazione"], fg="#CBE0E8", font=("Segoe UI", 9),
         ).pack(anchor="w")  # sottotitolo
         tk.Label(
             intestazione, text="Progetto Python · 2026/2027",
-            bg=COLORI["intestazione"], fg="#a1a1aa", font=("Segoe UI", 9),
+            bg=COLORI["intestazione"], fg="#CBE0E8", font=("Segoe UI", 9),
         ).pack(side="right", padx=20)  # riferimento al progetto a destra
 
     # --------------------------------------------------------------- eventi

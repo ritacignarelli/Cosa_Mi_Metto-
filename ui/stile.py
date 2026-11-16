@@ -7,19 +7,19 @@ from tkinter import ttk  # widget con stile moderno
 # SINTASSI — i colori sono stringhe esadecimali nel formato "#RRGGBB":
 # i primi due caratteri sono il rosso, poi verde e blu. Tkinter accetta
 # direttamente questi codici.
-COLORI = {  # tavolozza unica usata da tutta l'interfaccia
-    "sfondo": "#f4f4f5",  # grigio chiarissimo per lo sfondo
-    "superficie": "#ffffff",  # bianco per le card
-    "testo": "#18181b",  # quasi nero per i testi
-    "tenue": "#71717a",  # grigio per le informazioni secondarie
-    "bordo": "#e4e4e7",  # grigio chiaro per i bordi
-    "primario": "#4f46e5",  # indaco per i pulsanti principali
-    "primario_scuro": "#4338ca",  # indaco più scuro al passaggio del mouse
-    "pericolo": "#dc2626",  # rosso per le azioni di eliminazione
-    "pericolo_scuro": "#b91c1c",  # rosso più scuro al passaggio del mouse
-    "intestazione": "#111827",  # blu molto scuro per la barra superiore
-    "testo_chiaro": "#f9fafb",  # bianco per il testo sull'intestazione
-    "grigio": "#e5e7eb",  # grigio per la barra di stato
+COLORI = {  # tavolozza unica usata da tutta l'interfaccia (tema sabbia e moka)
+    "sfondo": "#F3EEE9",  # sabbia chiarissimo per lo sfondo e le barre dei filtri
+    "superficie": "#FCFBF9",  # bianco avorio per le card
+    "testo": "#382B24",  # marrone caffè per i testi principali
+    "tenue": "#4E7482",  # carta da zucchero scuro per i sottotitoli
+    "bordo": "#DCD2C8",  # beige sabbia per i bordi
+    "primario": "#9EC1CF",  # carta da zucchero per tab, selezioni e bottoni
+    "primario_scuro": "#7FA8B8",  # carta da zucchero più scura al passaggio del mouse
+    "pericolo": "#B85D56",  # mattone soft per il tasto elimina
+    "pericolo_scuro": "#9A4A44",  # mattone più scuro al passaggio del mouse
+    "intestazione": "#59443A",  # marrone moka per l'header superiore
+    "testo_chiaro": "#FDFBF7",  # avorio per il titolo dell'header
+    "grigio": "#F3EEE9",  # sabbia chiarissimo per la barra di stato
 }
 
 

@@ -1,3 +1,0 @@
-# Pillow serve per aprire, ruotare, ridimensionare e mostrare le foto dei capi.
-# Tkinter, invece, è già incluso in Python e non va installato con pip.
-Pillow>=10.0
